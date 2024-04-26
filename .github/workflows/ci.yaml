@@ -15,18 +15,21 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - platform: linux/amd64
-            tag: amd64
-            build-args: ""
+          # - platform: linux/amd64
+          #   tag: amd64-cuda-11.4.3
+          #   build-args: "BASE=nvidia/cuda:11.4.3-runtime-ubuntu20.04"
           - platform: linux/arm64
-            tag: l4t-cuda-11.4.14
-            build-args: "BASE=nvcr.io/nvidia/l4t-cuda:11.4.14-runtime"
-          - platform: linux/arm64
-            tag: l4t-cuda-11.4.19
-            build-args: "BASE=nvcr.io/nvidia/l4t-cuda:11.4.19-runtime"
-          - platform: linux/arm64
-            tag: l4t-cuda-12.2.12
-            build-args: "BASE=nvcr.io/nvidia/l4t-cuda:12.2.12-runtime"
+            tag: r35.2.1-pth2.0-py3
+            build-args: "BASE=nvcr.io/nvidia/l4t-pytorch:r35.2.1-pth2.0-py3"
+          # - platform: linux/arm64
+          #   tag: l4t-cuda-11.4.14
+          #   build-args: "BASE=nvcr.io/nvidia/l4t-cuda:11.4.14-runtime"
+          # - platform: linux/arm64
+          #   tag: l4t-cuda-11.4.19
+          #   build-args: "BASE=nvcr.io/nvidia/l4t-cuda:11.4.19-runtime"
+          # - platform: linux/arm64
+          #   tag: l4t-cuda-12.2.12
+          #   build-args: "BASE=nvcr.io/nvidia/l4t-cuda:12.2.12-runtime"
     steps:
       - name: Checkout
         uses: actions/checkout@v4

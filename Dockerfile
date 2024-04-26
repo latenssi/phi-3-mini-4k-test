@@ -1,5 +1,4 @@
-ARG CUDA_VERSION=12.4.1
-ARG BASE=nvidia/cuda:${CUDA_VERSION}-runtime-ubuntu22.04
+ARG BASE=nvidia/cuda:11.4.3-runtime-ubuntu20.04
 FROM ${BASE}
 
 ENV LANG C.UTF-8
@@ -19,6 +18,7 @@ WORKDIR /usr/src/app
 
 COPY requirements.txt .
 
+# RUN pip install --no-cache-dir torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu113
 RUN pip install --no-cache-dir -r requirements.txt
 
 VOLUME [ "/hub_cache" ]

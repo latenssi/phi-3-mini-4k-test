@@ -1,5 +1,2 @@
 accelerate
-torch
-torchvision
-torchaudio
 transformers
